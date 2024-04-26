@@ -1,19 +1,23 @@
 import { createContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
+  GithubAuthProvider,
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
+  signOut,
 } from "firebase/auth";
 import auth from "../Firbase/firbase.config";
+
+//socal media provider
 const googlepro = new GoogleAuthProvider();
+const githubpro = new GithubAuthProvider();
 
 export const AuthContext = createContext(null);
 
 const FirbaseProvider = ({ children }) => {
   const [user, setuser] = useState(null);
-  console.log(user);
   // user creation
   const creatUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -25,6 +29,17 @@ const FirbaseProvider = ({ children }) => {
   //google login
   const googlelogin = () => {
     return signInWithPopup(auth, googlepro);
+  };
+
+  // github login
+  const githublogin = () => {
+    return signInWithPopup(auth, githubpro);
+  };
+
+  // logout
+  const logout = () => {
+    setuser(null);
+    signOut(auth);
   };
 
   // objerver
@@ -40,6 +55,8 @@ const FirbaseProvider = ({ children }) => {
     creatUser,
     login,
     googlelogin,
+    githublogin,
+    logout,
   };
   return (
     <AuthContext.Provider value={allValue}>{children}</AuthContext.Provider>

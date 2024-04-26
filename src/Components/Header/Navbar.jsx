@@ -1,5 +1,7 @@
 import { NavLink, Link } from "react-router-dom";
+import useAuth from "../../Hook/useAuth";
 const Navbar = () => {
+  const { user, logout } = useAuth();
   const navrout = (
     <>
       <li>
@@ -21,6 +23,26 @@ const Navbar = () => {
           }
         >
           All Tourists Spot
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/About"
+          className={({ isActive }) =>
+            isActive ? " btn btn-outline btn-success " : " "
+          }
+        >
+          Add Tourists Spot
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/About"
+          className={({ isActive }) =>
+            isActive ? " btn btn-outline btn-success " : " "
+          }
+        >
+          My List
         </NavLink>
       </li>
     </>
@@ -48,7 +70,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[10] p-2 shadow bg-base-100 rounded-box w-52"
             >
               {navrout}
             </ul>
@@ -64,9 +86,36 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navrout}</ul>
         </div>
         <div className="navbar-end">
-          <Link to="/login" className="btn">
-            Login
-          </Link>
+          {user ? (
+            <div className=" flex items-center gap-2">
+              <div className="dropdown dropdown-hover">
+                <div tabIndex={0} role="button">
+                  <img
+                    className="w-10 h-10  rounded-full "
+                    src={user?.photoURL || "https://i.ibb.co/ZLvzRqG/user.png"}
+                  />
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content z-[10] menu p-2 shadow bg-base-100 rounded-box w-36 "
+                >
+                  <li>
+                    <p>{user?.displayName || "user not defind"}</p>
+                  </li>
+                  <li>
+                    <Link className="btn btn-outline btn-success">Profile</Link>
+                  </li>
+                </ul>
+              </div>
+              <button className="btn btn-outline btn-success" onClick={logout}>
+                Logout
+              </button>
+            </div>
+          ) : (
+            <Link to="/login" className="btn btn-outline btn-success">
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </div>

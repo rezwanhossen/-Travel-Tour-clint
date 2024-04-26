@@ -2,7 +2,7 @@ import { FaGoogle } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import useAuth from "../../../Hook/useAuth";
 const Socilmedia = () => {
-  const { googlelogin } = useAuth();
+  const { googlelogin, githublogin } = useAuth();
   return (
     <div>
       <div>
@@ -14,7 +14,10 @@ const Socilmedia = () => {
           >
             <FaGoogle />
           </button>
-          <button className="btn text-2xl btn-outline btn-accent">
+          <button
+            onClick={() => githublogin()}
+            className="btn text-2xl btn-outline btn-accent"
+          >
             <FaGithub />
           </button>
         </div>
