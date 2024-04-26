@@ -1,8 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
+import AddTourists from "../Components/Pages/AddTourists/AddTourists";
 import Home from "../Components/Pages/Home/Home";
 import Login from "../Components/Pages/Login/Login";
 import Register from "../Components/Pages/Login/Register";
 import Error from "../Error/Error";
+import PrivetRout from "../PrivetRout/PrivetRout";
 import Root from "../Root/Root";
 const router = createBrowserRouter([
   {
@@ -21,6 +23,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/addtourists",
+        element: (
+          <PrivetRout>
+            <AddTourists></AddTourists>{" "}
+          </PrivetRout>
+        ),
       },
     ],
   },

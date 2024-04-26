@@ -27,7 +27,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/About"
+          to="/addtourists"
           className={({ isActive }) =>
             isActive ? " btn btn-outline btn-success " : " "
           }
