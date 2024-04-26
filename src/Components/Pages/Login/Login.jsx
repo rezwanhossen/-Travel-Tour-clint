@@ -53,7 +53,7 @@ const Login = () => {
   };
 
   return (
-    <div data-aos="zoom-in-up" data-aos-delay="200">
+    <div>
       <div className="w-full md:w-2/5 mx-auto border rounded shadow-md bg-gray-100 p-5 space-y-4">
         <h2 className="text-2xl font-bold text-center">Login</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
