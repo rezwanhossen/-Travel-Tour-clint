@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import Socilmedia from "./Socilmedia";
 import { useState } from "react";
@@ -10,6 +10,12 @@ const Login = () => {
   const [showpass, setshowpass] = useState(false);
   const [passvalid, setpassvalid] = useState("");
   const { login } = useAuth();
+
+  const naviget = useNavigate();
+
+  const location = useLocation();
+
+  const form = location.state || "/";
 
   const {
     register,
@@ -37,7 +43,9 @@ const Login = () => {
     }
     login(email, password)
       .then((result) => {
-        console.log(result);
+        if (result.user) {
+          naviget(form);
+        }
       })
       .catch((error) => {
         console.error(error);
