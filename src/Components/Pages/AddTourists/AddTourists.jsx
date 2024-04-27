@@ -33,13 +33,19 @@ const AddTourists = () => {
             </div>
             <div>
               <p className=" text-xl font-semibold"> Country Name :</p>
-              <input
-                className=" input input-bordered w-full"
-                type="text"
-                name="countryName"
-                placeholder="Enter country name"
-                id=""
-              />
+              <select
+                className="input input-bordered w-full"
+                id="season"
+                name="country"
+              >
+                <option value="">Select countey</option>
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="Thailand">Thailand</option>
+                <option value="Indonesia">Indonesia</option>
+                <option value="Malaysia">Malaysia</option>
+                <option value="Vietnam">Vietnam</option>
+                <option value="Cambodia">Cambodia</option>
+              </select>
             </div>
             <div>
               <p className=" text-xl font-semibold"> Location :</p>

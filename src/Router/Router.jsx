@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import AddTourists from "../Components/Pages/AddTourists/AddTourists";
+import AllTurestSport from "../Components/Pages/AllTurestSport/AllTurestSport";
 import Home from "../Components/Pages/Home/Home";
 import Login from "../Components/Pages/Login/Login";
 import Register from "../Components/Pages/Login/Register";
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
             <MyList></MyList>
           </PrivetRout>
         ),
+      },
+      {
+        path: "/allturestsport",
+        element: <AllTurestSport></AllTurestSport>,
       },
     ],
   },

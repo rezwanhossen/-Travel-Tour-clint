@@ -17,7 +17,7 @@ const Navbar = () => {
 
       <li>
         <NavLink
-          to="/About"
+          to="/allturestsport"
           className={({ isActive }) =>
             isActive ? " btn btn-outline btn-success " : " "
           }
