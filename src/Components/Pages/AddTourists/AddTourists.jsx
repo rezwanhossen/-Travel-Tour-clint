@@ -1,6 +1,38 @@
-import React from "react";
+import useAuth from "../../../Hook/useAuth";
 
 const AddTourists = () => {
+  const { user } = useAuth();
+  const handeladdturist = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const img = form.img.value;
+    const spotName = form.spotName.value;
+    const country = form.country.value;
+    const location = form.location.value;
+    const desc = form.desc.value;
+    const cost = form.cost.value;
+    const season = form.season.value;
+    const trvltime = form.trvltime.value;
+    const peryear = form.peryear.value;
+    const Autname = user?.displayName;
+    const email = user?.email;
+    const autimg = user?.photoURL;
+    const addtouristspot = {
+      img,
+      spotName,
+      country,
+      location,
+      desc,
+      cost,
+      season,
+      trvltime,
+      peryear,
+      autimg,
+      Autname,
+      email,
+    };
+    console.log(addtouristspot);
+  };
   return (
     <div>
       <div className=" bg-slate-200 rounded-xl w-4/5 mx-auto mt-5 p-5 ">
@@ -8,7 +40,7 @@ const AddTourists = () => {
           Add Tourists spot
         </h2>
 
-        <form className=" space-y-3">
+        <form onSubmit={handeladdturist} className=" space-y-3">
           <div>
             <p className=" text-xl font-semibold"> Tourists spot photo url :</p>
             <input
@@ -35,7 +67,7 @@ const AddTourists = () => {
               <p className=" text-xl font-semibold"> Country Name :</p>
               <select
                 className="input input-bordered w-full"
-                id="season"
+                id="country"
                 name="country"
               >
                 <option value="">Select countey</option>
@@ -94,13 +126,13 @@ const AddTourists = () => {
               <p className=" text-xl font-semibold"> Travel time:</p>
               <select
                 className="input input-bordered w-full"
-                id="season"
-                name="season"
+                id=""
+                name="trvltime"
               >
-                <option value="summer"> 7 days</option>
-                <option value="autumn">15 days</option>
-                <option value="winter"> 20 days</option>
-                <option value="spring">1 month</option>
+                <option value="7 days"> 7 days</option>
+                <option value="15 days">15 days</option>
+                <option value="20 days"> 20 days</option>
+                <option value="1 month">1 month</option>
               </select>
             </div>
 
@@ -111,26 +143,6 @@ const AddTourists = () => {
                 type="number"
                 name="peryear"
                 placeholder="Tota Visitors Per Year like-1000"
-                id=""
-              />
-            </div>
-            <div>
-              <p className=" text-xl font-semibold">User Email :</p>
-              <input
-                className=" input input-bordered w-full"
-                type="text"
-                name="email"
-                placeholder="enter user email"
-                id=""
-              />
-            </div>
-            <div>
-              <p className=" text-xl font-semibold">User Name :</p>
-              <input
-                className=" input input-bordered w-full"
-                type="text"
-                name="name"
-                placeholder="enter user name"
                 id=""
               />
             </div>

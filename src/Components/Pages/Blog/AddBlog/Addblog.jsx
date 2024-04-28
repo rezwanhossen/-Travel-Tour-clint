@@ -2,7 +2,7 @@ import useAuth from "../../../../Hook/useAuth";
 
 const Addblog = () => {
   const { user } = useAuth();
-  console.log(user);
+  // console.log(user);
   const handelBlog = (e) => {
     e.preventDefault();
     const form = e.target;
