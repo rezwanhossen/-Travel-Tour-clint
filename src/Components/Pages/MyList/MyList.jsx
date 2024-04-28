@@ -68,7 +68,7 @@ const MyList = () => {
               <td> {list.country}</td>
               <td>{list.location} </td>
               <td className=" flex gap-2">
-                <Link to="/updateturists">
+                <Link to={`/updateturists/${list._id}`}>
                   <button className=" btn bg-green-300">
                     <FiEdit />
                   </button>

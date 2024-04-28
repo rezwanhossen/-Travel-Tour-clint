@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import AddTourists from "../Components/Pages/AddTourists/AddTourists";
 import Updatetourists from "../Components/Pages/AddTourists/Updatetourists";
 import AllTurestSport from "../Components/Pages/AllTurestSport/AllTurestSport";
-import Addblog from "../Components/Pages/Blog/AddBlog/Addblog";
 import Home from "../Components/Pages/Home/Home";
 import Login from "../Components/Pages/Login/Login";
 import Register from "../Components/Pages/Login/Register";
@@ -37,17 +36,12 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/updateturists",
+        path: "/updateturists/:id",
         element: <Updatetourists></Updatetourists>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5001/singledata/${params.id}`),
       },
-      {
-        path: "/addblog",
-        element: (
-          <PrivetRout>
-            <Addblog></Addblog>
-          </PrivetRout>
-        ),
-      },
+
       {
         path: "/mylist",
         element: (

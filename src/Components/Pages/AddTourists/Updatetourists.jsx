@@ -1,4 +1,65 @@
+import { useParams, useLoaderData } from "react-router-dom";
+// import useAuth from "../../../Hook/useAuth";
+import Swal from "sweetalert2";
 const Updatetourists = () => {
+  const spot = useLoaderData();
+  const {
+    _id,
+    img,
+    spotName,
+    country,
+    location,
+    desc,
+    cost,
+    season,
+    trvltime,
+    peryear,
+  } = spot;
+
+  const handelUpdat = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const img = form.img.value;
+    const spotName = form.spotName.value;
+    const country = form.country.value;
+    const location = form.location.value;
+    const desc = form.desc.value;
+    const cost = form.cost.value;
+    const season = form.season.value;
+    const trvltime = form.trvltime.value;
+    const peryear = form.peryear.value;
+
+    const updattouristspot = {
+      img,
+      spotName,
+      country,
+      location,
+      desc,
+      cost,
+      season,
+      trvltime,
+      peryear,
+    };
+    fetch(`http://localhost:5001/updatsingledata/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updattouristspot),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount > 0) {
+          Swal.fire({
+            title: "success!",
+            text: "Your data are updated !",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+        }
+      });
+  };
+
   return (
     <div>
       <div>
@@ -7,10 +68,9 @@ const Updatetourists = () => {
             Update Tourists spot
           </h2>
 
-          <form className=" space-y-3">
+          <form onSubmit={handelUpdat} className=" space-y-3">
             <div>
               <p className=" text-xl font-semibold">
-                {" "}
                 Tourists spot photo url :
               </p>
               <input
@@ -19,6 +79,7 @@ const Updatetourists = () => {
                 name="img"
                 placeholder="https://i.ibb.co/qmygyvy/a10logo.png"
                 id=""
+                defaultValue={img}
               />
             </div>
 
@@ -31,14 +92,16 @@ const Updatetourists = () => {
                   name="spotName"
                   placeholder="Enter tourists spot name"
                   id=""
+                  defaultValue={spotName}
                 />
               </div>
               <div>
                 <p className=" text-xl font-semibold"> Country Name :</p>
                 <select
                   className="input input-bordered w-full"
-                  id="season"
+                  id=""
                   name="country"
+                  defaultValue={country}
                 >
                   <option value="">Select countey</option>
                   <option value="Bangladesh">Bangladesh</option>
@@ -57,6 +120,7 @@ const Updatetourists = () => {
                   name="location"
                   placeholder="Enter location"
                   id=""
+                  defaultValue={location}
                 />
               </div>
               <div>
@@ -67,6 +131,7 @@ const Updatetourists = () => {
                   name="desc"
                   placeholder="short description"
                   id=""
+                  defaultValue={desc}
                 />
               </div>
               <div>
@@ -77,6 +142,7 @@ const Updatetourists = () => {
                   name="cost"
                   placeholder="average cost like-2000"
                   id=""
+                  defaultValue={cost}
                 />
               </div>
               <div>
@@ -85,6 +151,7 @@ const Updatetourists = () => {
                   className="input input-bordered w-full"
                   id="season"
                   name="season"
+                  defaultValue={season}
                 >
                   <option value="summer">Summer</option>
                   <option value="autumn">Autumn</option>
@@ -96,8 +163,9 @@ const Updatetourists = () => {
                 <p className=" text-xl font-semibold"> Travel time:</p>
                 <select
                   className="input input-bordered w-full"
-                  id="season"
-                  name="season"
+                  id=""
+                  name="trvltime"
+                  defaultValue={trvltime}
                 >
                   <option value="summer"> 7 days</option>
                   <option value="autumn">15 days</option>
@@ -116,33 +184,14 @@ const Updatetourists = () => {
                   name="peryear"
                   placeholder="Tota Visitors Per Year like-1000"
                   id=""
-                />
-              </div>
-              <div>
-                <p className=" text-xl font-semibold">User Email :</p>
-                <input
-                  className=" input input-bordered w-full"
-                  type="text"
-                  name="email"
-                  placeholder="enter user email"
-                  id=""
-                />
-              </div>
-              <div>
-                <p className=" text-xl font-semibold">User Name :</p>
-                <input
-                  className=" input input-bordered w-full"
-                  type="text"
-                  name="name"
-                  placeholder="enter user name"
-                  id=""
+                  defaultValue={peryear}
                 />
               </div>
             </div>
             <input
               className=" btn btn-outline btn-success w-full"
               type="submit"
-              value="Add"
+              value="Update"
             />
           </form>
         </div>

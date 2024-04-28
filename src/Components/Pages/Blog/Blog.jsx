@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const Blog = () => {
   return (
@@ -13,11 +13,7 @@ const Blog = () => {
           that could serve as inspiration for your blog.
         </p>
 
-        <div className="flex justify-center mt-5">
-          <Link to="/addblog" className=" btn btn-outline btn-success">
-            Add Blog
-          </Link>
-        </div>
+        <div className="flex justify-center mt-5"></div>
       </div>
 
       <div></div>
