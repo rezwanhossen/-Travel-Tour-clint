@@ -14,7 +14,9 @@ const Blog = () => {
         </p>
 
         <div className="flex justify-center mt-5">
-          <Link className=" btn btn-outline btn-success">Add Blog</Link>
+          <Link to="/addblog" className=" btn btn-outline btn-success">
+            Add Blog
+          </Link>
         </div>
       </div>
 
