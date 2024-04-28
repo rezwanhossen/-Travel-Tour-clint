@@ -22,7 +22,7 @@ const TouristSpots = () => {
         </p>
       </div>
 
-      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+      <div className=" mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
         {spot.slice(0, 6).map((data) => (
           <div key={data._id}>
             <div className=" ">
@@ -40,7 +40,7 @@ const TouristSpots = () => {
                 </div>
                 <div className=" flex gap-1 items-center">
                   <img
-                    className=" w-12 h-12 rounded-full"
+                    className=" w-10 h-10 rounded-full"
                     src={data.autimg || "https://i.ibb.co/ZLvzRqG/user.png"}
                     alt=""
                   />

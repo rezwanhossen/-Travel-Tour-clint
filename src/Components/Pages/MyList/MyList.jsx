@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import { FiEdit } from "react-icons/fi";
 import { MdDelete } from "react-icons/md";
 import useAuth from "../../../Hook/useAuth";
+import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 const MyList = () => {
   const { user } = useAuth();
   const [lists, setlists] = useState([]);
@@ -14,6 +16,35 @@ const MyList = () => {
         setlists(data);
       });
   }, []);
+
+  const handelDelet = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5001/tourspot/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+            }
+          });
+      }
+    });
+  };
+
   return (
     <div>
       <div className=" text-center">
@@ -37,10 +68,16 @@ const MyList = () => {
               <td> {list.country}</td>
               <td>{list.location} </td>
               <td className=" flex gap-2">
-                <button className=" btn bg-green-300">
-                  <FiEdit />
-                </button>
-                <button className=" btn bg-red-400">
+                <Link to="/updateturists">
+                  <button className=" btn bg-green-300">
+                    <FiEdit />
+                  </button>
+                </Link>
+
+                <button
+                  onClick={() => handelDelet(list._id)}
+                  className=" btn bg-red-400"
+                >
                   <MdDelete />
                 </button>
               </td>

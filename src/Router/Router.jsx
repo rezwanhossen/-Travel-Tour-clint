@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import AddTourists from "../Components/Pages/AddTourists/AddTourists";
+import Updatetourists from "../Components/Pages/AddTourists/Updatetourists";
 import AllTurestSport from "../Components/Pages/AllTurestSport/AllTurestSport";
 import Addblog from "../Components/Pages/Blog/AddBlog/Addblog";
 import Home from "../Components/Pages/Home/Home";
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
             <AddTourists></AddTourists>{" "}
           </PrivetRout>
         ),
+      },
+      {
+        path: "/updateturists",
+        element: <Updatetourists></Updatetourists>,
       },
       {
         path: "/addblog",

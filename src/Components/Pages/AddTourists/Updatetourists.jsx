@@ -4,7 +4,7 @@ const Updatetourists = () => {
       <div>
         <div className=" bg-slate-200 rounded-xl w-4/5 mx-auto mt-5 p-5 ">
           <h2 className="text-xl md:text-3xl my-3 text-center border-b-2 pb-3 border-rose-500">
-            Add Tourists spot
+            Update Tourists spot
           </h2>
 
           <form className=" space-y-3">

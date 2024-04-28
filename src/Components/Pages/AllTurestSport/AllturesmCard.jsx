@@ -17,7 +17,7 @@ const AllturesmCard = ({ cards }) => {
           </div>
           <div className=" flex gap-1 items-center">
             <img
-              className=" w-12 h-12 rounded-full"
+              className=" w-10 h-10 rounded-full"
               src={autimg || "https://i.ibb.co/ZLvzRqG/user.png"}
               alt=""
             />
