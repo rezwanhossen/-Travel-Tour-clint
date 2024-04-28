@@ -86,11 +86,7 @@ const AddTourists = () => {
             </div>
             <div>
               <p className=" text-xl font-semibold"> Country Name :</p>
-              <select
-                className="input input-bordered w-full"
-                id="country"
-                name="country"
-              >
+              <select className="select w-full" id="country" name="country">
                 <option value="">Select countey</option>
                 <option value="Bangladesh">Bangladesh</option>
                 <option value="Thailand">Thailand</option>
@@ -132,11 +128,7 @@ const AddTourists = () => {
             </div>
             <div>
               <p className=" text-xl font-semibold"> seasonality :</p>
-              <select
-                className="input input-bordered w-full"
-                id="season"
-                name="season"
-              >
+              <select className="select  w-full" id="season" name="season">
                 <option value="summer">Summer</option>
                 <option value="autumn">Autumn</option>
                 <option value="winter">Winter</option>
@@ -145,11 +137,7 @@ const AddTourists = () => {
             </div>
             <div>
               <p className=" text-xl font-semibold"> Travel time:</p>
-              <select
-                className="input input-bordered w-full"
-                id=""
-                name="trvltime"
-              >
+              <select className="select w-full" id="" name="trvltime">
                 <option value="7 days"> 7 days</option>
                 <option value="15 days">15 days</option>
                 <option value="20 days"> 20 days</option>

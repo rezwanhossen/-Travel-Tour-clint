@@ -51,9 +51,13 @@ const TouristSpots = () => {
                 <hr />
 
                 <h3 className="text-2xl font-bold"> {data.spotName}</h3>
-                <button className=" w-full btn btn-outline btn-success">
+
+                <Link
+                  to={`/vewditTureSpot/${data._id}`}
+                  className=" w-full btn btn-outline btn-success"
+                >
                   View Details
-                </button>
+                </Link>
               </div>
             </div>
           </div>

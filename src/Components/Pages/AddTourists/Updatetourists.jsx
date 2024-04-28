@@ -98,7 +98,7 @@ const Updatetourists = () => {
               <div>
                 <p className=" text-xl font-semibold"> Country Name :</p>
                 <select
-                  className="input input-bordered w-full"
+                  className="select  w-full "
                   id=""
                   name="country"
                   defaultValue={country}
@@ -148,7 +148,7 @@ const Updatetourists = () => {
               <div>
                 <p className=" text-xl font-semibold"> seasonality :</p>
                 <select
-                  className="input input-bordered w-full"
+                  className="select  w-full"
                   id="season"
                   name="season"
                   defaultValue={season}
@@ -162,15 +162,15 @@ const Updatetourists = () => {
               <div>
                 <p className=" text-xl font-semibold"> Travel time:</p>
                 <select
-                  className="input input-bordered w-full"
+                  className="select w-full"
                   id=""
                   name="trvltime"
                   defaultValue={trvltime}
                 >
-                  <option value="summer"> 7 days</option>
-                  <option value="autumn">15 days</option>
-                  <option value="winter"> 20 days</option>
-                  <option value="spring">1 month</option>
+                  <option value="7 days"> 7 days</option>
+                  <option value="15 days">15 days</option>
+                  <option value="20 days"> 20 days</option>
+                  <option value="1 month">1 month</option>
                 </select>
               </div>
 

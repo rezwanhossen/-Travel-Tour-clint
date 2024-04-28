@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const AllturesmCard = ({ cards }) => {
   const { _id, img, cost, season, trvltime, autimg, Autname, spotName } = cards;
   return (
@@ -26,9 +27,12 @@ const AllturesmCard = ({ cards }) => {
           <hr />
 
           <h3 className="text-2xl font-bold"> {spotName}</h3>
-          <button className=" w-full btn btn-outline btn-success">
+          <Link
+            to={`/vewditTureSpot/${_id}`}
+            className=" w-full btn btn-outline btn-success"
+          >
             View Details
-          </button>
+          </Link>
         </div>
       </div>
     </div>
