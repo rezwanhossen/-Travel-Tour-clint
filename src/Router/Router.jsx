@@ -54,6 +54,7 @@ const router = createBrowserRouter([
       {
         path: "/allturestsport",
         element: <AllTurestSport></AllTurestSport>,
+        loader: () => fetch("http://localhost:5001/tourspot"),
       },
     ],
   },

@@ -1,7 +1,9 @@
 import useAuth from "../../../Hook/useAuth";
+import Swal from "sweetalert2";
 
 const AddTourists = () => {
   const { user } = useAuth();
+
   const handeladdturist = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -31,7 +33,26 @@ const AddTourists = () => {
       Autname,
       email,
     };
-    console.log(addtouristspot);
+
+    //sent data in data base
+    fetch("http://localhost:5001/tourspot", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(addtouristspot),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            title: "success!",
+            text: "Your turesm Spot is added !",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+        }
+      });
   };
   return (
     <div>
