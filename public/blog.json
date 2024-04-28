@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "img": "https://i.ibb.co/c1360Jk/images.jpg",
+    "title": "Exploring the Serene Beaches of Bali",
+    "hotel": "Bali Paradise Resort",
+    "date": "2024-06-15",
+    "rating": 4.5,
+    "description": "Experience the breathtaking beauty of Bali with pristine beaches, lush green landscapes, and vibrant culture. Stay at the luxurious Bali Paradise Resort and immerse yourself in relaxation and adventure.",
+    "likes": 102,
+    "comments": 23,
+    "shares": 15
+  },
+  {
+    "id": 2,
+    "img": "https://i.ibb.co/LPJGj1j/img-4.jpg",
+    "title": "Adventures in the Amazon",
+    "hotel": "Eco Jungle Lodge",
+    "date": "2024-07-20",
+    "rating": 4.8,
+    "description": "Embark on an unforgettable journey deep into the heart of the Amazon Rainforest. Stay at the Eco Jungle Lodge, surrounded by exotic wildlife and lush vegetation. Explore the wonders of nature and discover the secrets of the jungle.",
+    "likes": 215,
+    "comments": 42,
+    "shares": 30
+  },
+  {
+    "id": 3,
+    "img": "https://i.ibb.co/F3LWQv8/pexels-indragunawan-398154.jpg",
+    "title": "Skiing Adventure in the Swiss Alps",
+    "hotel": "Alpine Chalet Retreat",
+    "date": "2024-12-10",
+    "rating": 4.7,
+    "description": "Indulge in a thrilling skiing adventure amidst the stunning landscapes of the Swiss Alps. Relax in the cozy comfort of the Alpine Chalet Retreat after a day of exhilarating slopes and breathtaking views.",
+    "likes": 185,
+    "comments": 37,
+    "shares": 25
+  },
+  {
+    "id": 4,
+    "img": "https://i.ibb.co/b68Fg4H/pexels-tiago-cardoso-1263068-2495575.jpg",
+    "title": "Cultural Exploration in Kyoto, Japan",
+    "hotel": "Traditional Ryokan Inn",
+    "date": "2025-03-05",
+    "rating": 4.6,
+    "description": "Immerse yourself in the rich cultural heritage of Kyoto, Japan. Stay at the Traditional Ryokan Inn and experience the beauty of traditional Japanese architecture, exquisite cuisine, and serene gardens.",
+    "likes": 150,
+    "comments": 28,
+    "shares": 20
+  },
+  {
+    "id": 5,
+    "img": "https://i.ibb.co/Pz9vryf/babaa.jpg",
+    "title": "Cruise Adventure in the Caribbean",
+    "hotel": "Caribbean Dream Cruise",
+    "date": "2025-05-20",
+    "rating": 4.9,
+    "description": "Sail away to paradise on a luxurious Caribbean Dream Cruise. Explore crystal-clear waters, pristine beaches, and vibrant marine life. Indulge in gourmet dining, thrilling activities, and endless relaxation.",
+    "likes": 320,
+    "comments": 55,
+    "shares": 40
+  },
+  {
+    "id": 6,
+    "img": "https://i.ibb.co/g332wrw/pexels-flodahm-1074442.jpg",
+    "title": "Historical Journey in Rome, Italy",
+    "hotel": "Roman Heritage Hotel",
+    "date": "2025-09-15",
+    "rating": 4.7,
+    "description": "Step back in time and discover the wonders of ancient Rome. Stay at the Roman Heritage Hotel and explore iconic landmarks such as the Colosseum, Vatican City, and the Pantheon. Experience the timeless beauty of the Eternal",
+    "likes": 460,
+    "comments": 52,
+    "shares": 403
+  }
+]

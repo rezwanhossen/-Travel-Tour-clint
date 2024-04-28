@@ -1,6 +1,20 @@
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { FaComment } from "react-icons/fa";
+import { useEffect } from "react";
+import { useState } from "react";
+import { AiOutlineLike } from "react-icons/ai";
+import { IoIosShareAlt } from "react-icons/io";
 
 const Blog = () => {
+  const [blog, setblog] = useState([]);
+  useEffect(() => {
+    fetch("blog.json")
+      .then((res) => res.json())
+      .then((data) => {
+        setblog(data);
+      });
+  }, []);
+
   return (
     <div className="mt-10">
       <div className="w-3/4 mx-auto text-center ">
@@ -16,7 +30,38 @@ const Blog = () => {
         <div className="flex justify-center mt-5"></div>
       </div>
 
-      <div></div>
+      <div className=" grid grid-cols-1 md:grid-cols-3 gap-3 mt-10">
+        {blog.map((data) => (
+          <div key={data.id}>
+            <div className=" border rounded-md p-3  ">
+              <img
+                className="  h-[200px] w-[100%] rounded mb-1"
+                src={data.img}
+                alt=""
+              />
+              <div className=" flex justify-between gap-1 p-2 mb-2">
+                <p className=" flex gap-1 items-center">
+                  {" "}
+                  <AiOutlineLike />
+                  {data.likes}{" "}
+                </p>
+                <p className=" flex gap-1 items-center">
+                  <FaComment /> {data.comments} comments{" "}
+                </p>
+                <p className=" flex gap-1 items-center">
+                  <IoIosShareAlt /> {data.shares} shares{" "}
+                </p>
+              </div>
+              <Link
+                to={`/blogdet/${data.id}`}
+                className="text-xl font-bold hover:underline hover:text-green-500"
+              >
+                {data.title}{" "}
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
