@@ -39,6 +39,8 @@ const MyList = () => {
                 text: "Your file has been deleted.",
                 icon: "success",
               });
+              const remain = lists.filter((lis) => lis._id != id);
+              setlists(remain);
             }
           });
       }
