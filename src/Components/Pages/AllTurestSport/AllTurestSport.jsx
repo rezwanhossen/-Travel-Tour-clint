@@ -1,8 +1,30 @@
+import { useEffect } from "react";
+import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import Contact from "../Home/Contact/Contact";
 // import useAuth from "../../../Hook/useAuth";
 import AllturesmCard from "./AllturesmCard";
 const AllTurestSport = () => {
-  const allturestSport = useLoaderData();
+  // const allturestSport = useLoaderData();
+  const [allturestSport, setalltu] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5001/tourspot")
+      .then((res) => res.json())
+      .then((data) => {
+        setalltu(data);
+      });
+  }, []);
+  const handelsort = (filter) => {
+    if (filter === "ascending") {
+      const data = [...allturestSport];
+      const res = data.sort((a, b) => a.cost - b.cost);
+      setalltu(res);
+    } else if (filter === "descending") {
+      const data = [...allturestSport];
+      const res = data.sort((a, b) => b.cost - a.cost);
+      setalltu(res);
+    }
+  };
 
   // console.log(allturestSport);
   return (
@@ -26,11 +48,37 @@ const AllTurestSport = () => {
           All Tourist Spots
         </h1>
       </div>
+      <div className="flex justify-center ">
+        <details className="dropdown">
+          <summary className="m-1 btn-success btn-outline btn">Sort By</summary>
+          <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+            <li>
+              <button
+                onClick={() => handelsort("ascending")}
+                className=" btn btn-outline"
+              >
+                ascending
+              </button>
+            </li>
+            <li>
+              <button
+                onClick={() => handelsort("descending")}
+                className=" btn btn-outline"
+              >
+                descending
+              </button>
+            </li>
+          </ul>
+        </details>
+      </div>
 
       <div className=" mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
         {allturestSport.map((cards) => (
           <AllturesmCard key={cards._id} cards={cards}></AllturesmCard>
         ))}
+      </div>
+      <div className="mt-5">
+        <Contact></Contact>
       </div>
     </div>
   );

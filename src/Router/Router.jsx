@@ -47,7 +47,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/updateturists/:id",
-        element: <Updatetourists></Updatetourists>,
+        element: (
+          <PrivetRout>
+            <Updatetourists></Updatetourists>
+          </PrivetRout>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5001/singledata/${params.id}`),
       },
@@ -63,7 +67,6 @@ const router = createBrowserRouter([
       {
         path: "/allturestsport",
         element: <AllTurestSport></AllTurestSport>,
-        loader: () => fetch("http://localhost:5001/tourspot"),
       },
       {
         path: "/blogdet/:id",

@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { AiOutlineLike } from "react-icons/ai";
 import { IoIosShareAlt } from "react-icons/io";
+import { Tooltip } from "react-tooltip";
+import { useTypewriter } from "react-simple-typewriter";
 
 const Blog = () => {
   const [blog, setblog] = useState([]);
@@ -15,11 +17,18 @@ const Blog = () => {
       });
   }, []);
 
+  const [text] = useTypewriter({
+    words: ["Blog", "Contents"],
+    loop: {},
+    typeSpeed: 100,
+    deleteSpeed: 40,
+  });
+
   return (
     <div className="mt-10">
       <div className="w-3/4 mx-auto text-center ">
         <h1 className="text-3xl font-bold md:text-5xl my-5 ">
-          Latest from the Blog
+          Latest from the <span className=" text-rose-600">{text} </span>
         </h1>
         <p>
           It sounds like you're looking for inspiration for a tourist blog.
@@ -53,11 +62,14 @@ const Blog = () => {
                 </p>
               </div>
               <Link
+                data-tooltip-id="Click And visit all data"
+                data-tooltip-content="Click And visit all data"
                 to={`/blogdet/${data.id}`}
                 className="text-xl font-bold hover:underline hover:text-green-500"
               >
                 {data.title}{" "}
               </Link>
+              <Tooltip id="Click And visit all data" />
             </div>
           </div>
         ))}

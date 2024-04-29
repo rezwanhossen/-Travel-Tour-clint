@@ -5,7 +5,15 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { FaArrowRight } from "react-icons/fa";
+import { useTypewriter } from "react-simple-typewriter";
+
 const Banner = () => {
+  const [text] = useTypewriter({
+    words: ["Southeast ", "Asia"],
+    loop: {},
+    typeSpeed: 100,
+    deleteSpeed: 40,
+  });
   return (
     <div>
       <div>
@@ -13,7 +21,7 @@ const Banner = () => {
           spaceBetween={30}
           centeredSlides={true}
           autoplay={{
-            delay: 2500,
+            delay: 3500,
             disableOnInteraction: false,
           }}
           loop={true}
@@ -29,8 +37,7 @@ const Banner = () => {
               <div className=" w-3/5 mx-auto text-white text-center">
                 <h1 className="  text-3xl lg:text-5xl font-bold">
                   Welcome to
-                  <span className=" text-rose-600">Southeast Asia</span>{" "}
-                  Adventures!
+                  <span className=" text-rose-600">{text}</span> Adventures!
                 </h1>
                 <p>
                   Embark on an unforgettable journey with us and discover the
@@ -51,8 +58,7 @@ const Banner = () => {
             <div className="flex items-center h-full justify-center ">
               <div className=" w-3/5 mx-auto text-white text-center">
                 <h1 className="text-3xl lg:text-5xl font-bold">
-                  Discover{" "}
-                  <span className=" text-rose-700"> Southeast Asia's</span>{" "}
+                  Discover <span className=" text-rose-700">{text} </span>{" "}
                   Hidden Treasures!
                 </h1>
                 <p>
@@ -74,7 +80,7 @@ const Banner = () => {
               <div className=" w-3/5 mx-auto text-white text-center">
                 <h1 className=" text-3xl lg:text-5xl font-bold">
                   Experience the Magic of{" "}
-                  <span className=" text-rose-700"> Southeast Asia!</span>
+                  <span className=" text-rose-700"> {text}</span>
                 </h1>
                 <p>
                   Step into a world of enchantment and wonder with Southeast
