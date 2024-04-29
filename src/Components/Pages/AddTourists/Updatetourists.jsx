@@ -24,7 +24,7 @@ const Updatetourists = () => {
     const country = form.country.value;
     const location = form.location.value;
     const desc = form.desc.value;
-    const cost = form.cost.value;
+    const cost = parseInt(form.cost.value);
     const season = form.season.value;
     const trvltime = form.trvltime.value;
     const peryear = form.peryear.value;

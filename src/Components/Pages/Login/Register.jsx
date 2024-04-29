@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
 import useAuth from "../../../Hook/useAuth";
@@ -8,7 +8,11 @@ const Register = () => {
   const [showpass, setshowpass] = useState(false);
   const [passvalid, setpassvalid] = useState("");
 
-  const { creatUser } = useAuth();
+  const { creatUser, updatprofil } = useAuth();
+  const naviget = useNavigate();
+  const location = useLocation();
+
+  const form = location.state || "/";
   const {
     register,
     handleSubmit,
@@ -34,8 +38,10 @@ const Register = () => {
       );
       return;
     }
-    creatUser(email, password).then((result) => {
-      console.log(result);
+    creatUser(email, password, fullname, img).then(() => {
+      updatprofil(fullname, img).then(() => {
+        naviget(form);
+      });
     });
 
     console.log(email, password, fullname, img);

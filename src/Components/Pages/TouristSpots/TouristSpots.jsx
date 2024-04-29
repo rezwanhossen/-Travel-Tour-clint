@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useAuth from "../../../Hook/useAuth";
 
 const TouristSpots = () => {
+  const { loding } = useAuth();
   const [spot, setspot] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5001/tourspot")
@@ -11,6 +13,7 @@ const TouristSpots = () => {
         setspot(data);
       });
   }, []);
+
   return (
     <div className="mt-10">
       <div className="w-3/4 mx-auto text-center ">
@@ -22,46 +25,48 @@ const TouristSpots = () => {
         </p>
       </div>
 
-      <div className=" mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-        {spot.slice(0, 6).map((data) => (
-          <div key={data._id}>
-            <div className=" ">
-              <div className="  border-2 space-y-3 rounded-md p-5 ">
-                <div>
-                  <img className="w-full h-[250px]" src={data.img} alt="" />
-                  <p className=" -mt-14 pr-5 flex justify-end text-white text-3xl font-semibold">
-                    {data.cost} $
-                  </p>
-                </div>
-                <br />
-                <div className="flex justify-between mt-3">
-                  <p>{data.season} </p>
-                  <p>{data.trvltime} </p>
-                </div>
-                <div className=" flex gap-1 items-center">
-                  <img
-                    className=" w-10 h-10 rounded-full"
-                    src={data.autimg || "https://i.ibb.co/ZLvzRqG/user.png"}
-                    alt=""
-                  />
-                  <h3 className="text-xl font-bold">
-                    {data.Autname || "user Undefin"}{" "}
-                  </h3>
-                </div>
-                <hr />
+      <div>
+        <div className=" mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+          {spot.slice(0, 6).map((data) => (
+            <div key={data._id}>
+              <div className=" ">
+                <div className="  border-2 space-y-3 rounded-md p-5 ">
+                  <div>
+                    <img className="w-full h-[250px]" src={data.img} alt="" />
+                    <p className=" -mt-14 pr-5 flex justify-end text-white text-3xl font-semibold">
+                      {data.cost} $
+                    </p>
+                  </div>
+                  <br />
+                  <div className="flex justify-between mt-3">
+                    <p>{data.season} </p>
+                    <p>{data.trvltime} </p>
+                  </div>
+                  <div className=" flex gap-1 items-center">
+                    <img
+                      className=" w-10 h-10 rounded-full"
+                      src={data.autimg || "https://i.ibb.co/ZLvzRqG/user.png"}
+                      alt=""
+                    />
+                    <h3 className="text-xl font-bold">
+                      {data.Autname || "user Undefin"}{" "}
+                    </h3>
+                  </div>
+                  <hr />
 
-                <h3 className="text-2xl font-bold"> {data.spotName}</h3>
+                  <h3 className="text-2xl font-bold"> {data.spotName}</h3>
 
-                <Link
-                  to={`/vewditTureSpot/${data._id}`}
-                  className=" w-full btn btn-outline btn-success"
-                >
-                  View Details
-                </Link>
+                  <Link
+                    to={`/vewditTureSpot/${data._id}`}
+                    className=" w-full btn btn-outline btn-success"
+                  >
+                    View Details
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
       <div className=" flex justify-center mt-5">

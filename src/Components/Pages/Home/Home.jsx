@@ -3,17 +3,17 @@ import CountriesSection from "../CountriesSection/CountriesSection";
 import TouristSpots from "../TouristSpots/TouristSpots";
 import About from "./About/About";
 import Contact from "./Contact/Contact";
-// import Banner from "./Banner/Banner";
+import Banner from "./Banner/Banner";
 
 const Home = () => {
   return (
     <div>
       {/* <Banner></Banner> */}
-      {/* <TouristSpots></TouristSpots> */}
+      <TouristSpots></TouristSpots>
       <CountriesSection></CountriesSection>
-      {/* <Blog></Blog>
+      <Blog></Blog>
       <About></About>
-      <Contact></Contact> */}
+      <Contact></Contact>
     </div>
   );
 };

@@ -1,7 +1,9 @@
 import { useLoaderData } from "react-router-dom";
+// import useAuth from "../../../Hook/useAuth";
 import AllturesmCard from "./AllturesmCard";
 const AllTurestSport = () => {
   const allturestSport = useLoaderData();
+
   // console.log(allturestSport);
   return (
     <div>
@@ -24,6 +26,7 @@ const AllTurestSport = () => {
           All Tourist Spots
         </h1>
       </div>
+
       <div className=" mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
         {allturestSport.map((cards) => (
           <AllturesmCard key={cards._id} cards={cards}></AllturesmCard>

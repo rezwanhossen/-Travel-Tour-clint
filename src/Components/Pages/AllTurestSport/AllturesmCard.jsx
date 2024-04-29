@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
+import useAuth from "../../../Hook/useAuth";
 const AllturesmCard = ({ cards }) => {
+  const { loding } = useAuth();
   const { _id, img, cost, season, trvltime, autimg, Autname, spotName } = cards;
   return (
     <div>
