@@ -13,5 +13,6 @@ Features of South East Asia Travel & Tour :
 - Social Media Integration:
   Connect with visitors through social media platforms, including Facebook, Instagram, Twitter, and LinkedIn, to share updates, promotions.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Live Link
+
+< https://turesom-assigment10.web.app >
