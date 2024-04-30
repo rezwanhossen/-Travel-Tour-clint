@@ -4,13 +4,18 @@ import { FiEdit } from "react-icons/fi";
 import { MdDelete } from "react-icons/md";
 import useAuth from "../../../Hook/useAuth";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
+
 const MyList = () => {
-  const { user } = useAuth();
+  const { user, loding } = useAuth();
   const [lists, setlists] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5001/tourspot/${user?.email}`)
+    fetch(`https://assigment10-sarver-side.vercel.app/tourspot/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setlists(data);
@@ -28,7 +33,7 @@ const MyList = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5001/tourspot/${id}`, {
+        fetch(`https://assigment10-sarver-side.vercel.app/tourspot/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -49,13 +54,22 @@ const MyList = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>My lists</title>
+      </Helmet>
+
       <div className=" text-center">
         <h1 className="text-3xl md:text-5xl font-bold">
           My list Tourists Spot
         </h1>
       </div>
       <div>
-        <table className=" table">
+        <table
+          data-aos="zoom-in"
+          data-aos-delay="25"
+          data-aos-duration="2000"
+          className=" table"
+        >
           <thead>
             <tr>
               <th>tourists spot name</th>
@@ -64,6 +78,7 @@ const MyList = () => {
               <th>Actions</th>
             </tr>
           </thead>
+
           {lists.map((list) => (
             <tr key={list._id}>
               <td>{list.spotName}</td>

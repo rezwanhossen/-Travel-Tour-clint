@@ -1,5 +1,9 @@
 import useAuth from "../../../Hook/useAuth";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const AddTourists = () => {
   const { user } = useAuth();
@@ -35,7 +39,7 @@ const AddTourists = () => {
     };
 
     //sent data in data base
-    fetch("http://localhost:5001/tourspot", {
+    fetch("https://assigment10-sarver-side.vercel.app/tourspot", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -56,7 +60,15 @@ const AddTourists = () => {
   };
   return (
     <div>
-      <div className=" bg-slate-200 rounded-xl w-4/5 mx-auto mt-5 p-5 ">
+      <Helmet>
+        <title>Add tourest spot</title>
+      </Helmet>
+      <div
+        data-aos="zoom-in"
+        data-aos-delay="25"
+        data-aos-duration="2000"
+        className=" bg-slate-200 rounded-xl w-4/5 mx-auto mt-5 p-5 "
+      >
         <h2 className="text-xl md:text-3xl my-3 text-center border-b-2 pb-3 border-rose-500">
           Add Tourists spot
         </h2>

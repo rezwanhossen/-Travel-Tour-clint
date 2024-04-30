@@ -1,6 +1,11 @@
 import { useParams, useLoaderData } from "react-router-dom";
 // import useAuth from "../../../Hook/useAuth";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
+
 const Updatetourists = () => {
   const spot = useLoaderData();
   const {
@@ -40,7 +45,7 @@ const Updatetourists = () => {
       trvltime,
       peryear,
     };
-    fetch(`http://localhost:5001/updatsingledata/${_id}`, {
+    fetch(`https://assigment10-sarver-side.vercel.app/updatsingledata/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -62,8 +67,16 @@ const Updatetourists = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Update turest spots</title>
+      </Helmet>
       <div>
-        <div className=" bg-slate-200 rounded-xl w-4/5 mx-auto mt-5 p-5 ">
+        <div
+          data-aos="zoom-in"
+          data-aos-delay="25"
+          data-aos-duration="2000"
+          className=" bg-slate-200 rounded-xl w-4/5 mx-auto mt-5 p-5 "
+        >
           <h2 className="text-xl md:text-3xl my-3 text-center border-b-2 pb-3 border-rose-500">
             Update Tourists spot
           </h2>

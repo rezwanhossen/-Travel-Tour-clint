@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import useAuth from "../../../Hook/useAuth";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 const AllturesmCard = ({ cards }) => {
   const { loding } = useAuth();
   const { _id, img, cost, season, trvltime, autimg, Autname, spotName } = cards;
   return (
-    <div>
+    <div data-aos="zoom-in" data-aos-delay="25" data-aos-duration="2000">
       <div className=" ">
         <div className="  border-2 space-y-3 rounded-md p-5 ">
           <div>

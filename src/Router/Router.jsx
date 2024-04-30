@@ -53,7 +53,9 @@ const router = createBrowserRouter([
           </PrivetRout>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5001/singledata/${params.id}`),
+          fetch(
+            `https://assigment10-sarver-side.vercel.app/singledata/${params.id}`
+          ),
       },
 
       {
@@ -81,7 +83,9 @@ const router = createBrowserRouter([
           </PrivetRout>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5001/singledata/${params.id}`),
+          fetch(
+            `https://assigment10-sarver-side.vercel.app/singledata/${params.id}`
+          ),
       },
       {
         path: "/bangladesh",

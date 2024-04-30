@@ -3,8 +3,11 @@ import { FiEye, FiEyeOff } from "react-icons/fi";
 import Socilmedia from "./Socilmedia";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-
+import { Helmet } from "react-helmet-async";
 import useAuth from "../../../Hook/useAuth";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const Login = () => {
   const [showpass, setshowpass] = useState(false);
@@ -54,7 +57,15 @@ const Login = () => {
 
   return (
     <div>
-      <div className="w-full md:w-2/5 mx-auto border rounded shadow-md bg-gray-100 p-5 space-y-4">
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
+      <div
+        data-aos="zoom-in"
+        data-aos-delay="25"
+        data-aos-duration="2000"
+        className="w-full md:w-2/5 mx-auto border rounded shadow-md bg-gray-100 p-5 space-y-4"
+      >
         <h2 className="text-2xl font-bold text-center">Login</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
@@ -92,12 +103,6 @@ const Login = () => {
           />
         </form>
 
-        <p className="text-center">
-          Do not have an Account ?
-          <Link className=" font-bold text-indigo-500" to="/register">
-            Register
-          </Link>
-        </p>
         <Socilmedia></Socilmedia>
       </div>
     </div>

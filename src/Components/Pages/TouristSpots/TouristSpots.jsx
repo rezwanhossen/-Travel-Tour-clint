@@ -4,12 +4,15 @@ import { Link } from "react-router-dom";
 import useAuth from "../../../Hook/useAuth";
 import { Tooltip } from "react-tooltip";
 import { useTypewriter } from "react-simple-typewriter";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const TouristSpots = () => {
-  const { loding } = useAuth();
+  const { user, loding } = useAuth();
   const [spot, setspot] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5001/tourspot")
+    fetch("https://assigment10-sarver-side.vercel.app/tourspot")
       .then((res) => res.json())
       .then((data) => {
         setspot(data);
@@ -39,8 +42,14 @@ const TouristSpots = () => {
       <div>
         <div className=" mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
           {spot.slice(0, 6).map((data) => (
-            <div key={data._id}>
-              <div className=" ">
+            <div
+              data-aos="zoom-in"
+              data-aos-delay="25"
+              data-aos-duration="2000"
+              data-aos-easing="ease-in-sine"
+              key={data._id}
+            >
+              <div>
                 <div className="  border-2 space-y-3 rounded-md p-5 ">
                   <div>
                     <img className="w-full h-[250px]" src={data.img} alt="" />

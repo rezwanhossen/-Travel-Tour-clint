@@ -1,3 +1,6 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 const About = () => {
   return (
     <div className="mt-10">
@@ -13,7 +16,12 @@ const About = () => {
         <div className="hero">
           <div className="hero-content ">
             <div className=" md:flex gap-4">
-              <div className=" flex-1 p-5">
+              <div
+                data-aos="fade-right"
+                data-aos-delay="100"
+                data-aos-duration="3000"
+                className=" flex-1 p-5"
+              >
                 <h1 className="text-5xl font-bold">Our Mission</h1>
                 <p className="py-6 ">
                   At <span> </span>
@@ -27,22 +35,41 @@ const About = () => {
                   understanding, and promoting sustainable tourism practices.
                 </p>
               </div>
-              <div className=" flex-1">
-                <img src="https://i.ibb.co/Gtmqt5t/turest.jpg" alt="" />
+              <div
+                data-aos="fade-left"
+                data-aos-delay="100"
+                data-aos-duration="3000"
+                className=" flex-1"
+              >
+                <img
+                  className="w-full"
+                  src="https://i.ibb.co/Gtmqt5t/turest.jpg"
+                  alt=""
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
       <div className=" mt-5 md:flex gap-5">
-        <div className=" flex-1">
+        <div
+          data-aos="fade-left"
+          data-aos-delay="100"
+          data-aos-duration="3000"
+          className=" flex-1"
+        >
           <img
             className=" rounded-md "
             src="https://i.ibb.co/fpS4K8T/pexels-rachel-claire-4577565.jpg"
             alt=""
           />
         </div>
-        <div className=" flex-1 p-3 border rounded-md">
+        <div
+          data-aos="fade-right"
+          data-aos-delay="100"
+          data-aos-duration="3000"
+          className=" flex-1 p-3 border rounded-md"
+        >
           <h1 className="text-2xl font-bold">History</h1>
           <p>
             Southeast Asia travel & tour was founded in 2024 with a passion for

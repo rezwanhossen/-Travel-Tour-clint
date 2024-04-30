@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
 import { useTypewriter } from "react-simple-typewriter";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
+
 const CountriesSection = () => {
   const [text] = useTypewriter({
     words: [
@@ -30,6 +34,9 @@ const CountriesSection = () => {
       </div>
       <div className=" mt-8 w-4/5 mx-auto gap-3  grid grid-cols-1 md:grid-cols-3">
         <Link
+          data-aos="fade-right"
+          data-aos-delay="75"
+          data-aos-duration="2000"
           data-tooltip-id="my-tooltip"
           data-tooltip-content="Bangladesh country detail you can visit you click"
           to="/bangladesh"
@@ -41,6 +48,9 @@ const CountriesSection = () => {
         </Link>
 
         <Link
+          data-aos="fade-down"
+          data-aos-delay="50"
+          data-aos-duration="2000"
           data-tooltip-id="my-tooltip"
           data-tooltip-content="Thailand country detail you can visit you click"
           to="/Thailand"
@@ -52,6 +62,9 @@ const CountriesSection = () => {
         </Link>
 
         <Link
+          data-aos="fade-left"
+          data-aos-delay="75"
+          data-aos-duration="2000"
           data-tooltip-id="my-tooltip"
           data-tooltip-content="Indonesia country detail you can visit you click"
           to="/Indonesia"
@@ -63,6 +76,9 @@ const CountriesSection = () => {
         </Link>
 
         <Link
+          data-aos="fade-up-right"
+          data-aos-delay="100"
+          data-aos-duration="2000"
           data-tooltip-id="my-tooltip"
           data-tooltip-content="malaysia country detail you can visit you click"
           to="/Malaysia"
@@ -74,6 +90,9 @@ const CountriesSection = () => {
         </Link>
 
         <Link
+          data-aos="fade-up"
+          data-aos-delay="70"
+          data-aos-duration="2000"
           data-tooltip-id="my-tooltip"
           data-tooltip-content="vietnam country detail you can visit you click"
           to="/Vietnam"
@@ -85,6 +104,9 @@ const CountriesSection = () => {
         </Link>
 
         <Link
+          data-aos="fade-up-left"
+          data-aos-delay="100"
+          data-aos-duration="2000"
           data-tooltip-id="my-tooltip"
           data-tooltip-content="Cambodia country detail you can visit you click"
           to="/Cambodia"

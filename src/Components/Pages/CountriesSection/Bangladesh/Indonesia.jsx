@@ -2,12 +2,15 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../../../../Hook/useAuth";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const Indonesia = () => {
   const { loding } = useAuth();
   const [bcard, setbcard] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5001/countrys/Indonesia")
+    fetch("https://assigment10-sarver-side.vercel.app/countrys/Indonesia")
       .then((res) => res.json())
       .then((data) => {
         setbcard(data);
@@ -71,7 +74,14 @@ const Indonesia = () => {
           ))}
         </div>
         <section className=" mt-10 space-y-4">
-          <div className=" md:flex gap-4 border rounded p-5">
+          <div
+            data-aos="fade-right"
+            data-aos-offset="300"
+            data-aos-delay="50"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in-sine"
+            className=" md:flex gap-4 border rounded p-5"
+          >
             <div className=" flex-1">
               <img
                 className=" w-full h-[300px]"
@@ -91,7 +101,14 @@ const Indonesia = () => {
               </p>
             </div>
           </div>
-          <div className=" md:flex gap-4 border rounded p-5">
+          <div
+            data-aos="fade-left"
+            data-aos-offset="300"
+            data-aos-delay="75"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in-sine"
+            className=" md:flex gap-4 border rounded p-5"
+          >
             <div className=" flex-1">
               <h1 className="text-3xl font-bold my-5">Tropical Islands </h1>
               <p>
@@ -111,7 +128,14 @@ const Indonesia = () => {
               />
             </div>
           </div>
-          <div className=" md:flex gap-4 border rounded p-5">
+          <div
+            data-aos="fade-right"
+            data-aos-offset="300"
+            data-aos-delay="100"
+            data-aos-duration="1000"
+            data-aos-easing="ease-in-sine"
+            className=" md:flex gap-4 border rounded p-5"
+          >
             <div className=" flex-1">
               <div className=" grid grid-cols-2">
                 <img

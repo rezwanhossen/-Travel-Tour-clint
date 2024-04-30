@@ -4,11 +4,13 @@ import { useLoaderData } from "react-router-dom";
 import Contact from "../Home/Contact/Contact";
 // import useAuth from "../../../Hook/useAuth";
 import AllturesmCard from "./AllturesmCard";
+import { Helmet } from "react-helmet-async";
+
 const AllTurestSport = () => {
   // const allturestSport = useLoaderData();
   const [allturestSport, setalltu] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5001/tourspot")
+    fetch("https://assigment10-sarver-side.vercel.app/tourspot")
       .then((res) => res.json())
       .then((data) => {
         setalltu(data);
@@ -29,6 +31,9 @@ const AllTurestSport = () => {
   // console.log(allturestSport);
   return (
     <div>
+      <Helmet>
+        <title>All turest spots</title>
+      </Helmet>
       <div className="hero h-[70vh] bg-[url('https://i.ibb.co/w6yzGNb/bgtravel.jpg')] bg-cover bg-center">
         <div className="hero-content text-center">
           <div className="max-w-md">

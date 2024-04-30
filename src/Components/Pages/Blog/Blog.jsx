@@ -6,6 +6,10 @@ import { AiOutlineLike } from "react-icons/ai";
 import { IoIosShareAlt } from "react-icons/io";
 import { Tooltip } from "react-tooltip";
 import { useTypewriter } from "react-simple-typewriter";
+// import { Helmet } from "react-helmet-async";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const Blog = () => {
   const [blog, setblog] = useState([]);
@@ -41,7 +45,12 @@ const Blog = () => {
 
       <div className=" grid grid-cols-1 md:grid-cols-3 gap-3 mt-10">
         {blog.map((data) => (
-          <div key={data.id}>
+          <div
+            data-aos="zoom-in"
+            data-aos-delay="25"
+            data-aos-duration="2000"
+            key={data.id}
+          >
             <div className=" border rounded-md p-3  ">
               <img
                 className="  h-[200px] w-[100%] rounded mb-1"

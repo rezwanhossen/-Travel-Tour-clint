@@ -2,24 +2,30 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../../../../Hook/useAuth";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 const Bungladesh = () => {
   const { loding } = useAuth();
   const [bcard, setbcard] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5001/countrys/Bangladesh")
+    fetch("https://assigment10-sarver-side.vercel.app/countrys/Bangladesh")
       .then((res) => res.json())
       .then((data) => {
         setbcard(data);
       });
   }, []);
+
   return (
     <div>
       <div className="hero min-h-screen  bg-[url('https://i.ibb.co/KDxP5fY/banglades.jpg')] bg-cover h-[100vh]">
         <div className="hero-content text-center">
           <div className="max-w-md">
-            <h1 className="text-5xl font-bold">Bangladesh</h1>
-            <p className="py-6 text-xl">
+            <h1 data-aos="fade-left" className="text-5xl font-bold">
+              Bangladesh
+            </h1>
+            <p data-aos="fade-up-right" className="py-6 text-xl">
               Welcome to Bangladesh, a land where nature unfolds its mesmerizing
               beauty at every turn. From the tranquil waters of the Sundarbans
               to the misty hills of Bandarban, this country is a treasure trove
@@ -68,7 +74,14 @@ const Bungladesh = () => {
         ))}
       </div>
       <section className=" mt-10 space-y-4">
-        <div className=" md:flex gap-4 border rounded p-5">
+        <div
+          data-aos="fade-right"
+          data-aos-offset="300"
+          data-aos-delay="50"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-sine"
+          className=" md:flex gap-4 border rounded p-5"
+        >
           <div className=" flex-1">
             <img
               className=" w-full h-[300px]"
@@ -88,7 +101,14 @@ const Bungladesh = () => {
             </p>
           </div>
         </div>
-        <div className=" md:flex gap-4 border rounded p-5">
+        <div
+          data-aos="fade-left"
+          data-aos-offset="300"
+          data-aos-delay="70"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-sine"
+          className=" md:flex gap-4 border rounded p-5"
+        >
           <div className=" flex-1">
             <h1 className="text-3xl font-bold my-5">Cox's Bazar </h1>
             <p>
@@ -107,7 +127,14 @@ const Bungladesh = () => {
             />
           </div>
         </div>
-        <div className=" md:flex gap-4 border rounded p-5">
+        <div
+          data-aos="fade-right"
+          data-aos-offset="300"
+          data-aos-delay="100"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-sine"
+          className=" md:flex gap-4 border rounded p-5"
+        >
           <div className=" flex-1">
             <div className=" grid grid-cols-2">
               <img

@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import useAuth from "../../Hook/useAuth";
+import { MdLogin } from "react-icons/md";
+import { MdLogout } from "react-icons/md";
 const Navbar = () => {
   const { user, logout } = useAuth();
   const [theme, setthem] = useState("light");
@@ -163,14 +165,31 @@ const Navbar = () => {
                   </li>
                 </ul>
               </div>
-              <button className="btn btn-outline btn-success" onClick={logout}>
-                Logout
+              <button
+                className="btn text-3xl btn-outline btn-success"
+                onClick={logout}
+              >
+                <MdLogout />
               </button>
             </div>
           ) : (
-            <Link to="/login" className="btn btn-outline btn-success">
-              Login
-            </Link>
+            <div className="gap-2 flex items-center">
+              <p>
+                {" "}
+                <Link
+                  to="/login"
+                  className="btn   text-3xl btn-outline btn-success"
+                >
+                  <MdLogin />
+                </Link>
+              </p>
+
+              <p>
+                <Link className="btn btn-outline btn-success " to="/register">
+                  Register
+                </Link>
+              </p>
+            </div>
           )}
         </div>
       </div>

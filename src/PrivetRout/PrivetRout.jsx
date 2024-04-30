@@ -6,7 +6,7 @@ const PrivetRout = ({ children }) => {
   const { user, loding } = useAuth();
   const location = useLocation();
 
-  if (!user) {
+  if (!user && !loding) {
     return <Navigate to="/login" state={location?.pathname || "/"}></Navigate>;
   }
   if (loding) {
@@ -16,6 +16,7 @@ const PrivetRout = ({ children }) => {
       </div>
     );
   }
+
   return <div>{children}</div>;
 };
 

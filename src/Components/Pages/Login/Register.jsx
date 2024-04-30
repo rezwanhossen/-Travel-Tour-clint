@@ -2,8 +2,13 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import { Helmet } from "react-helmet-async";
 
 import useAuth from "../../../Hook/useAuth";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
+
 const Register = () => {
   const [showpass, setshowpass] = useState(false);
   const [passvalid, setpassvalid] = useState("");
@@ -44,11 +49,14 @@ const Register = () => {
       });
     });
 
-    console.log(email, password, fullname, img);
+    //console.log(email, password, fullname, img);
   };
   return (
-    <div>
-      <div data-aos="zoom-in-up" data-aos-delay="200">
+    <div data-aos="zoom-in" data-aos-delay="25" data-aos-duration="2000">
+      <Helmet>
+        <title>register</title>
+      </Helmet>
+      <div>
         <div className="w-full md:w-2/5 mx-auto border rounded shadow-md bg-gray-100 p-5 space-y-4">
           <h2 className="text-2xl font-bold text-center">Login</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
