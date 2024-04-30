@@ -60,10 +60,8 @@ const FirbaseProvider = ({ children }) => {
   // objerver
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setuser(user);
-        setloding(false);
-      }
+      setuser(user);
+      setloding(false);
     });
     return () => unsub();
   }, []);

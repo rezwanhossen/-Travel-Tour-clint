@@ -6,9 +6,9 @@ const PrivetRout = ({ children }) => {
   const { user, loding } = useAuth();
   const location = useLocation();
 
-  if (!user && !loding) {
-    return <Navigate to="/login" state={location?.pathname || "/"}></Navigate>;
-  }
+  // if (!user && !loding) {
+
+  // }
   if (loding) {
     return (
       <div className=" flex justify-center">
@@ -16,8 +16,11 @@ const PrivetRout = ({ children }) => {
       </div>
     );
   }
+  if (user) {
+    return children;
+  }
 
-  return <div>{children}</div>;
+  return <Navigate to="/login" state={location?.pathname || "/"}></Navigate>;
 };
 
 export default PrivetRout;
