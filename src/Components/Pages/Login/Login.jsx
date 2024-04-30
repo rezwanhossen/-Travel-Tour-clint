@@ -7,11 +7,13 @@ import { Helmet } from "react-helmet-async";
 import useAuth from "../../../Hook/useAuth";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Swal from "sweetalert2";
 AOS.init();
 
 const Login = () => {
   const [showpass, setshowpass] = useState(false);
   const [passvalid, setpassvalid] = useState("");
+  const [error, seterror] = useState("");
   const { login } = useAuth();
 
   const naviget = useNavigate();
@@ -27,6 +29,7 @@ const Login = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
+    seterror("");
     const { email, password } = data;
 
     setpassvalid("");
@@ -51,7 +54,7 @@ const Login = () => {
         }
       })
       .catch((error) => {
-        console.error(error);
+        seterror(error.message);
       });
   };
 
@@ -102,6 +105,7 @@ const Login = () => {
             value="Login"
           />
         </form>
+        {error && <p className=" text-red-800">{error} </p>}
 
         <Socilmedia></Socilmedia>
       </div>
